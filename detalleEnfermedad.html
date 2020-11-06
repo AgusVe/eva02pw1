@@ -57,21 +57,22 @@
             <img src="img/23-fiebre-tos.png" alt="fiebre_tos">
         </article>
         <article>
-            <form action="#" name="formulario" onsubmit="return validar()" >
+            <form >
                 <div class="form-row">
-                    <div class="col-md-6"><label>Nombre y apellido</label><input type="text" class="form-control" id="nombre-y-apellido" ></div>
-                    <div class="col-md-6"><label>Sexo</label><br>
-                        <input type="radio" name="selector_sexo" >     M     <input type="radio" name="selector_sexo" >     F</div>
+                    <div class="col-md-6"><label for="nombre">Nombre y apellido</label>
+                        <input type="text" class="form-control" id="nombre-y-apellido" name="nombre" required></div>
+                    <div class="col-md-6"><label for="selector_sexo">Sexo</label><br>
+                        <input type="radio" name="selector_sexo" required >     M     <input type="radio" name="selector_sexo"  required>     F</div>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-6"><label>DNI</label>
-                        <input type="text" class="form-control" maxlength="10" id="dni"  ></div>
-                    <div class="col-md-6"><label>Teléfono</label>
-                        <input type="text" class="form-control" maxlength="10" id="telefono" ></div>
+                    <div class="col-md-6"><label for="dni">DNI</label>
+                        <input type="text" class="form-control" maxlength="10" id="dni" name="dni" required ></div>
+                    <div class="col-md-6"><label for="telefono">Teléfono</label>
+                        <input type="text" class="form-control" maxlength="10" id="telefono" name="telefono" required ></div>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-6"><label>¿Has viajado al exterior de la República Argentina?</label>
-                        <input type="radio" name="selector_viaje" id="mostrar">SI<input type="radio" name="selector_viaje"  id="ocultar">NO</div>
+                    <div class="col-md-6"><label for="selector_viaje">¿Has viajado al exterior de la República Argentina?</label>
+                        <input type="radio" name="selector_viaje" id="mostrar" required>SI<input type="radio" name="selector_viaje"  id="ocultar" required>NO</div>
                     <div class="paises-v desaparece">
                       <label>Paises visitados:</label>
                         <select class="form-control ">
@@ -93,27 +94,26 @@
                         <br>
                         <span>Por favor, indica los sintomas que presentas:</span><br>
                         <br>
-                        <label>¿Tuviste fiebre mayor a 38 grados?</label>
-                        <input type="radio" name="fiebre" id="tempe" required >SI<input type="radio" name="fiebre" id="sintomas-no"  required>NO<br>
-                        <label>¿Tuviste dolor de cabeza?</label>
-                        <input type="radio" name="dolor_cabeza" id="dolor-cabeza"  required>SI<input type="radio" name="dolor_cabeza" id="sintomas-no"  required>NO<br>
-                        <label>¿Tuviste una tos persistente?</label>
-                        <input type="radio" name="tos" id= "tos"  required>SI<input type="radio" name="tos" id="sintomas-no"  required>NO<br>
-                        <label>¿Tuviste dolor de garganta?</label>
-                        <input type="radio" name="dolor_garganta" id="dolor-garganta" required>SI<input type="radio" name="dolor_garganta" id="sintomas-no"  required>NO<br>
-                        <label>¿Tuviste dificultad para respirar?</label>
-                        <input type="radio" name="dificultad_respirar" value="si" id="dificultad-respirar" required >SI<input type="radio" name="dificultad_respirar" value="no" id="dificultad-respirarNo"   required )>NO
-                        <div class="direcc desapareceDirec"><label>Dirección</label><input type="text" class="form-control" id="Dirección" required></div>
-                        <div class="direcc desapareceDirec"><label>Ciudad</label><input type="text" class="form-control" id="ciudad" required></div>
-                    </div>
+                        <label for="fiebre">¿Tuviste fiebre mayor a 38 grados?</label>
+                        <input type="radio" name="fiebre" id="tempe"onchange="sintomas()" required >SI<input type="radio" name="fiebre" id="sintomas-no" required>NO<br>
+                        <label for="dolor_cabeza">¿Tuviste dolor de cabeza?</label>
+                        <input type="radio" name="dolor_cabeza" id="dolor-cabeza" onchange="sintomas()" required >SI<input type="radio" name="dolor_cabeza" id="sintomas-no"  required>NO<br>
+                        <label for="tos">¿Tuviste una tos persistente?</label>
+                        <input type="radio" name="tos" id= "tos" onchange="sintomas()" required >SI<input type="radio" name="tos" id="sintomas-no"  required >NO<br>
+                        <label for="dolor_garganta">¿Tuviste dolor de garganta?</label>
+                        <input type="radio" name="dolor_garganta" id="dolor-garganta" onchange="sintomas()" required >SI<input type="radio" name="dolor_garganta" id="sintomas-no" required>NO<br>
+                        <label for="dificultad_respirar">¿Tuviste dificultad para respirar?</label>
+                        <input type="radio" name="dificultad_respirar" value="si" id="dificultad-respirar" onchange="sintomas()" required>SI<input type="radio" name="dificultad_respirar" value="no" id="dificultad-respirarNo" required >NO
+                        <div class="direcc desapareceDirec">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" id="Dirección" >
+                            <label>Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad"  >
+                        </div>
                 </div>  
                 <div class="form-row">
-                    <input type="submit" value="ENVIAR TEST" >
+                    <input type="submit" value="ENVIAR TEST" onclick="validacion()" >
                 </div>            
-                <div id="mensaje" class="error" >
-
-
-                </div>
             </form>
         </article>
     </section>
